@@ -44,7 +44,7 @@
     },
     methods: {
       getTopicList () {
-        axios('/topicData')
+        axios.get('/topicData')
           .then((result) => {
             let res = result.data
             this.topicList = res.topic

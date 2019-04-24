@@ -50,7 +50,7 @@
 
 <script>
   import hearder from '../components/commom/hearder'
-
+  import axios from 'axios'
   export default {
     name: 'publicc',
     components: {hearder},
@@ -67,6 +67,9 @@
         beginRow: 1//开始行
       }
     },
+  mounted(){
+    this.doList()
+  },
     methods: {
       //隐藏溢出行的显示
       tableRowClassName ({row, rowIndex}) {
@@ -77,6 +80,14 @@
           return ''
         }
       },
+//获取列表
+      doList(){
+        axios.get('/topicData')
+          .then((res)=>{
+  console.log(res.data)
+          })
+      },
+
       //发布评论
       addList () {
         this.currentPage = 1//重置 当前页数值,回到首页
