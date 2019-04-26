@@ -22,15 +22,15 @@
       <mu-expansion-panel :expand="panel === 'panel1'" @change="toggle('panel1')">
         <div slot="header">从学生到社会人的转变
         </div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+       从学生到社会人这个角色的转变，是我们踏出大学校门，走向人生的另一起起点。
       </mu-expansion-panel>
       <mu-expansion-panel :expand="panel === 'panel2'" @change="toggle('panel2')">
-        <div slot="header">最美南国</div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+        <div slot="header">爱我南商</div>
+      南商就是那个你一天吐槽八遍却不许别人说半个不字的地方。
       </mu-expansion-panel>
       <mu-expansion-panel :expand="panel === 'panel3'" @change="toggle('panel3')">
         <div slot="header">大四放假通知</div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+       即日起大四毕业生，放假！假期时间：永久！
       </mu-expansion-panel>
     </mu-container>
     <h3>活动报名</h3>
@@ -38,11 +38,12 @@
       :data="tableData"
       border
       style="width: 100%">
-      <el-table-column label="活动名称" prop="sport"></el-table-column>
-      <el-table-column label="报名截至日期" prop="date"></el-table-column>
+      <el-table-column label="活动名称" prop="sport" align="center"></el-table-column>
+      <el-table-column label="报名截至日期" prop="date"align="center"></el-table-column>
       <el-table-column
         label="操作"
-        width="100">
+        width="100"
+        align="center">
         <template slot-scope="scope">
           <el-button @click="handleClick(scope.row)" type="text" size="small">报名</el-button>
         </template>
@@ -68,9 +69,18 @@ export default {
         date:"2019-1-1",
       },
         {
+          sport:"PPT创意大赛",
+          date:"2019-3-27",
+        },
+        {
           sport:"植树节植树",
           date:"2019-1-1",
-        }
+        },
+        {
+          sport:"毕业答辩志愿者",
+          date:"2019-4-27",
+        },
+
   ]
     }
   },

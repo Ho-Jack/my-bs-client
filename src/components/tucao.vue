@@ -87,6 +87,8 @@
         tag.href = '#'//给标签添加链接
 
         this.tags.push(tag)  //让vue替我们完成视图更新
+        this.$toast.success('弹幕发送成功');
+        this.tc=''
       },
       rotateX (angleX) {
         var cos = Math.cos(angleX)

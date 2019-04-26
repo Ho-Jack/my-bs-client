@@ -15,8 +15,10 @@
     "element-ui": "^2.7.0",
     "express": "^4.16.4",
     "muse-ui": "^3.0.1",
+    "muse-ui-toast": "^0.3.0",
     "qs": "^6.7.0",
     "vue": "^2.5.2",
+    "vue-float-action-button": "^0.6.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

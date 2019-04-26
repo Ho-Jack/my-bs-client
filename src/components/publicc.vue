@@ -1,25 +1,24 @@
 <template>
   <div class="body">
     <hearder title="我要发帖"></hearder>
+
     <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;">
-      <mu-card-header title="Myron Avatar" sub-title="sub title">
+      <mu-card-header :title=this.form.userName  :sub-title=this.form.publishTime>
         <mu-avatar slot="avatar">
+          <img :src="'../static/tx/'+this.form.userImage">
         </mu-avatar>
       </mu-card-header>
-      <mu-card-media title="Image Title" sub-title="Image Sub Title">
-        <img src="../assets/sun.jpg">
+      <mu-card-media :title='this.form.topicTitle' >
+     <img :src="'/static/tp/'+this.form.topicId+'.jpg'">
       </mu-card-media>
 
       <mu-card-text style="font-size: 15px">
-        散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。
-        调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。
-        似乎在诉说着，我也可以在漆黑的角落里，找到阴影背后的阳光，
-        找到阳光与阴影奏出和谐的旋律。我要用一颗敏感赤诚的心迎接每一缕滑过指尖的阳光！
+       {{this.form.topicArticle}}
       </mu-card-text>
     </mu-card>
     <section>
       <el-table :data="listPart" :show-header="false" :row-class-name="tableRowClassName">
-        <el-table-column prop="publisher" label="发评人" width="50"></el-table-column>
+        <el-table-column prop="publisher" label="发评人" width="80"></el-table-column>
         <el-table-column prop="content" label="内容"></el-table-column>
       </el-table>
 
@@ -64,11 +63,16 @@
         currentPage: 1,//默认当前页码
         pageSize: 5,//默认每页数据量
         toalPages: 1,//最大总页数
-        beginRow: 1//开始行
+        beginRow: 1,//开始行
+        topicId:'',
+        form:{},
+        isShow:true
+
       }
     },
   mounted(){
     this.doList()
+    this.topicId=this.$route.params.id
   },
     methods: {
       //隐藏溢出行的显示
@@ -84,7 +88,8 @@
       doList(){
         axios.get('/topicData')
           .then((res)=>{
-  console.log(res.data)
+
+  this.form=res.data.topic[this.topicId]
           })
       },
 
@@ -96,7 +101,7 @@
         let nowDate = new Date().toLocaleString()
         if (commentText) {
           this.listDate.unshift({
-            publisher: '柚子',
+            publisher: '陈浩杰',
             content: commentText,
           })
 

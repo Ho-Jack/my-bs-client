@@ -8,6 +8,7 @@ import login from '../components/login'
 import publicc from '../components/publicc'
 import  axiosDemo from '../components/test/axiosDemo'
 import apply from '../components/apply'
+import doPublic from '../components/doPublic'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -69,6 +70,11 @@ export default new Router({
       path: '/apply',
       name: 'apply',
       component: apply,
+    },
+    {
+      path: '/doPublic',
+      name: 'doPublic',
+      component: doPublic,
     },
   ]
 })
